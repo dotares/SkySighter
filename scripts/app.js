@@ -1,6 +1,3 @@
-// GEOCODE API: http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-// CURRENT WEATHER DATA: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
-
 // API KEYS:
 
 const openWeatherAPIKey = config.OPEN_WEATHER_API_KEY;
@@ -16,8 +13,8 @@ const getLatitudeAndLongitude = async (location) => {
     if (!response.ok)
       throw new Error(`${response.statusText}: (${response.status})`);
 
-    const arrayOfResults = await response.json();
-    const { lat: latitude, lon: longitude } = await arrayOfResults[0];
+    const data = await response.json();
+    const { lat: latitude, lon: longitude } = await data[0];
     return { latitude, longitude };
   } catch (err) {
     console.log(err);
@@ -26,37 +23,64 @@ const getLatitudeAndLongitude = async (location) => {
 
 // Function for getting weather data
 
-const getWeatherAndAirPollutionData = async (lat, lon) => {
+const getWeatherData = async (lat, lon) => {
   try {
-    const responseWeather = await fetch(
+    const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
-    const responseAirPollution = await fetch(
+    if (!response.ok)
+      throw new Error(`${response.statusText}: (${response.status})`);
+
+    const data = await response.json();
+
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Function for getting air pollution data
+
+const getAirPollutionData = async (lat, lon) => {
+  try {
+    const response = await fetch(
       `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
-    if (!responseWeather.ok)
-      throw new Error(
-        `${responseWeather.statusText}: (${responseWeather.status})`
-      );
+    if (!response.ok)
+      throw new Error(`${response.statusText}: (${response.status})`);
 
-    if (!responseAirPollution.ok)
-      throw new Error(
-        `${responseAirPollution.statusText}: (${responseAirPollution.status})`
-      );
+    const data = await response.json();
 
-    const dataWeather = await responseWeather.json();
-    const dataAirPollution = await responseAirPollution.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-    return [dataWeather, dataAirPollution];
+const get5DayForecastData = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
+    );
+
+    if (!response.ok)
+      throw new Error(`${response.statusText}: (${response.status})`);
+
+    const data = await response.json();
+
+    return data;
   } catch (err) {
     console.log(err);
   }
 };
 
 (async () => {
-  const { latitude, longitude } = await getLatitudeAndLongitude("Chandigarh");
-  const [weatherData, weatherAirPollution] =
-    await getWeatherAndAirPollutionData(latitude, longitude);
+  const { latitude, longitude } = await getLatitudeAndLongitude("Delhi");
+  console.log(latitude, longitude);
+  const dataWeather = await getWeatherData(latitude, longitude);
+  const dataAP = await getAirPollutionData(latitude, longitude);
+  const dataForecast = await get5DayForecastData(latitude, longitude);
+  console.log(dataWeather, dataAP, dataForecast);
 })();
