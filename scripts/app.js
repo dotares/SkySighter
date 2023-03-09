@@ -1,5 +1,4 @@
 // GEOCODE API: http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-//
 // CURRENT WEATHER DATA: https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
 
 // API KEYS:
@@ -17,28 +16,47 @@ const getLatitudeAndLongitude = async (location) => {
     if (!response.ok)
       throw new Error(`${response.statusText}: (${response.status})`);
 
-    const [{ lat: latitude, lon: longitude }] = await response.json();
-
+    const arrayOfResults = await response.json();
+    const { lat: latitude, lon: longitude } = await arrayOfResults[0];
     return { latitude, longitude };
   } catch (err) {
     console.log(err);
   }
 };
 
-const { latitude, longitude } = getLatitudeAndLongitude("New York");
-console.log(latitude, longitude);
+// Function for getting weather data
 
-// Function for fetching current weather data
-
-const getWeatherData = async (lat, lon) => {
+const getWeatherAndAirPollutionData = async (lat, lon) => {
   try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${openWeatherAPIKey}`
+    const responseWeather = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
-    if (!response.ok)
-      throw new Error(`${response.status}: (${response.status})`);
+    const responseAirPollution = await fetch(
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
+    );
+
+    if (!responseWeather.ok)
+      throw new Error(
+        `${responseWeather.statusText}: (${responseWeather.status})`
+      );
+
+    if (!responseAirPollution.ok)
+      throw new Error(
+        `${responseAirPollution.statusText}: (${responseAirPollution.status})`
+      );
+
+    const dataWeather = await responseWeather.json();
+    const dataAirPollution = await responseAirPollution.json();
+
+    return [dataWeather, dataAirPollution];
   } catch (err) {
     console.log(err);
   }
 };
+
+(async () => {
+  const { latitude, longitude } = await getLatitudeAndLongitude("Chandigarh");
+  const [weatherData, weatherAirPollution] =
+    await getWeatherAndAirPollutionData(latitude, longitude);
+})();
