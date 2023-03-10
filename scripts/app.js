@@ -31,10 +31,10 @@ const getLatitudeAndLongitude = async (location) => {
 
 // Function for getting weather data
 
-const getWeatherData = async (lat, lon) => {
+const getWeatherData = async (lat, lon, unit) => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
     if (!response.ok)
@@ -50,10 +50,10 @@ const getWeatherData = async (lat, lon) => {
 
 // Function for getting air pollution data
 
-const getAirPollutionData = async (lat, lon) => {
+const getAirPollutionData = async (lat, lon, unit) => {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
     if (!response.ok)
@@ -69,10 +69,10 @@ const getAirPollutionData = async (lat, lon) => {
 
 // Function for getting 5 day forcast with 3 hour steps
 
-const get5DayForecastData = async (lat, lon) => {
+const get5DayForecastData = async (lat, lon, unit) => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
     );
 
     if (!response.ok)
@@ -86,21 +86,32 @@ const get5DayForecastData = async (lat, lon) => {
   }
 };
 
-// TODO for 10th March 2023:
-// 3. Clean the code to make it much better
+// TODO:
+// 1. Add userUnits functionality
+// 1.1 Write about the data that we need for the app
+// 2. Clean data and extract values and make displayable variables
 
 // Submit button event handler and call the functions to find weather data according to the user data
 
 submitButton.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitsInput.value;
-
   (async () => {
-    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
+    const { latitude, longitude } = await getLatitudeAndLongitude("Delhi");
 
-    const dataWeather = await getWeatherData(latitude, longitude);
-    const dataAP = await getAirPollutionData(latitude, longitude);
-    const dataForecast = await get5DayForecastData(latitude, longitude);
+    const dataWeather = await getWeatherData(latitude, longitude, userUnit);
+    const dataAP = await getAirPollutionData(latitude, longitude, userUnit);
+    const dataForecast = await get5DayForecastData(
+      latitude,
+      longitude,
+      userUnit
+    );
+
+    // const currentDay = new Date(dataWeather.dt * 1000);
+    // console.log(currentDay.toLocaleDateString("en-US"));
+
+    // const dataWeatherEntries = Object.entries(dataWeather.main);
+    // console.log(dataWeatherEntries);
 
     console.log(dataWeather, dataAP, dataForecast);
   })();
