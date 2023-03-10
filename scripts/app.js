@@ -14,7 +14,9 @@ const getLatitudeAndLongitude = async (location) => {
       throw new Error(`${response.statusText}: (${response.status})`);
 
     const data = await response.json();
+
     const { lat: latitude, lon: longitude } = await data[0];
+
     return { latitude, longitude };
   } catch (err) {
     console.log(err);
@@ -78,11 +80,18 @@ const get5DayForecastData = async (lat, lon) => {
   }
 };
 
+// TODO for 10th March 2023:
+// 1. Implement a way for users to enter their preferred units
+// 2. Implement a way for users to enter their city
+// 3. Clean the code to make it much better
+// 4. Write down the values needed for the app and extract the data accordingly
+
 (async () => {
   const { latitude, longitude } = await getLatitudeAndLongitude("Delhi");
-  console.log(latitude, longitude);
+
   const dataWeather = await getWeatherData(latitude, longitude);
   const dataAP = await getAirPollutionData(latitude, longitude);
   const dataForecast = await get5DayForecastData(latitude, longitude);
+
   console.log(dataWeather, dataAP, dataForecast);
 })();
