@@ -1,3 +1,9 @@
+// Select DOM elements from HTML
+
+const locationInput = document.querySelector(".locationInput");
+const unitsInput = document.querySelector(".unitsInput");
+const submitButton = document.querySelector(".submitButton");
+
 // API KEYS:
 
 const openWeatherAPIKey = config.OPEN_WEATHER_API_KEY;
@@ -81,17 +87,21 @@ const get5DayForecastData = async (lat, lon) => {
 };
 
 // TODO for 10th March 2023:
-// 1. Implement a way for users to enter their preferred units
-// 2. Implement a way for users to enter their city
 // 3. Clean the code to make it much better
-// 4. Write down the values needed for the app and extract the data accordingly
 
-(async () => {
-  const { latitude, longitude } = await getLatitudeAndLongitude("Delhi");
+// Submit button event handler and call the functions to find weather data according to the user data
 
-  const dataWeather = await getWeatherData(latitude, longitude);
-  const dataAP = await getAirPollutionData(latitude, longitude);
-  const dataForecast = await get5DayForecastData(latitude, longitude);
+submitButton.addEventListener("click", () => {
+  const userLocation = locationInput.value;
+  const userUnit = unitsInput.value;
 
-  console.log(dataWeather, dataAP, dataForecast);
-})();
+  (async () => {
+    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
+
+    const dataWeather = await getWeatherData(latitude, longitude);
+    const dataAP = await getAirPollutionData(latitude, longitude);
+    const dataForecast = await get5DayForecastData(latitude, longitude);
+
+    console.log(dataWeather, dataAP, dataForecast);
+  })();
+});
