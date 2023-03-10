@@ -97,8 +97,10 @@ submitButton.addEventListener("click", () => {
   // function call async
 
   (async () => {
-    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
+    // call the geocoding function
+    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
 
+    // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
     const dataAP = await getAirPollutionData(latitude, longitude, userUnit);
     const dataForecast = await get5DayForecastData(
@@ -106,6 +108,12 @@ submitButton.addEventListener("click", () => {
       longitude,
       userUnit
     );
+
+    // TODO:
+    // 1. Implement date variable
+    // 2. Display the data variables in divs
+    // 3. Figure out the open weather map
+    // 4. Install tailwind
 
     // const currentDay = new Date(dataWeather.dt * 1000);
     // console.log(currentDay.toLocaleDateString("en-US"));
@@ -119,15 +127,9 @@ submitButton.addEventListener("click", () => {
     const dataWeatherWind = Object.entries(dataWeather.wind);
 
     // dataAP stuff
-    const dataAPMain = Object.entries(dataAP.list[0].components);
+    const dataAPComponents = Object.entries(dataAP.list[0].components);
+    const dataAPMain = Object.entries(dataAP.list[0].main);
 
-    // logs
-    console.log(dataWeatherMain);
-    console.log(dataWeatherWeatherStatus);
-    console.log(dataWeatherSunState);
-    console.log(dataWeatherTimezone);
-    console.log(dataWeatherVisibility);
-    console.log(dataWeatherWind);
-    console.log(dataAPMain);
+    console.log(dataAP);
   })();
 });
