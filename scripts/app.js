@@ -86,18 +86,18 @@ const get5DayForecastData = async (lat, lon, unit) => {
   }
 };
 
-// TODO:
-// 1. Add userUnits functionality
-// 1.1 Write about the data that we need for the app
-// 2. Clean data and extract values and make displayable variables
+// TODO: Clean the data
 
 // Submit button event handler and call the functions to find weather data according to the user data
 
 submitButton.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitsInput.value;
+
+  // function call async
+
   (async () => {
-    const { latitude, longitude } = await getLatitudeAndLongitude("Delhi");
+    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
 
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
     const dataAP = await getAirPollutionData(latitude, longitude, userUnit);
@@ -110,9 +110,24 @@ submitButton.addEventListener("click", () => {
     // const currentDay = new Date(dataWeather.dt * 1000);
     // console.log(currentDay.toLocaleDateString("en-US"));
 
-    // const dataWeatherEntries = Object.entries(dataWeather.main);
-    // console.log(dataWeatherEntries);
+    // dataWeather stuff
+    const dataWeatherMain = Object.entries(dataWeather.main);
+    const dataWeatherWeatherStatus = Object.entries(dataWeather.weather[0]);
+    const dataWeatherSunState = Object.entries(dataWeather.sys);
+    const dataWeatherTimezone = dataWeather.timezone;
+    const dataWeatherVisibility = dataWeather.visibility;
+    const dataWeatherWind = Object.entries(dataWeather.wind);
 
-    console.log(dataWeather, dataAP, dataForecast);
+    // dataAP stuff
+    const dataAPMain = Object.entries(dataAP.list[0].components);
+
+    // logs
+    console.log(dataWeatherMain);
+    console.log(dataWeatherWeatherStatus);
+    console.log(dataWeatherSunState);
+    console.log(dataWeatherTimezone);
+    console.log(dataWeatherVisibility);
+    console.log(dataWeatherWind);
+    console.log(dataAPMain);
   })();
 });
