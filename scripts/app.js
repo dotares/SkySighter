@@ -59,6 +59,8 @@ const getAirPollutionData = async (lat, lon) => {
   }
 };
 
+// Function for getting 5 day forcast with 3 hour steps
+
 const get5DayForecastData = async (lat, lon) => {
   try {
     const response = await fetch(
