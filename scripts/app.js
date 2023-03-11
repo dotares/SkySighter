@@ -123,9 +123,8 @@ submitButton.addEventListener("click", () => {
     );
 
     // TODO:
-    // 1. Figure out how to display the data on the weather app
     // 2. Figure out the open weather map feature
-    // 3. Install tailwind
+    // 3. Design basic structure with tailwind
 
     const currentDay = new Date(dataWeather.dt * 1000);
     const day = currentDay.toLocaleDateString("en-US");
