@@ -135,6 +135,7 @@ submitButton.addEventListener("click", () => {
     const dataWeatherSunState = Object.entries(dataWeather.sys);
     const dataWeatherWind = Object.entries(dataWeather.wind);
 
+    // dataWeather stuff without objects or arrays
     const dataWeatherTimezone = dataWeather.timezone;
     const dataWeatherVisibility = dataWeather.visibility;
 
