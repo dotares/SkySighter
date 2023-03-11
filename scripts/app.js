@@ -4,6 +4,21 @@ const locationInput = document.querySelector(".locationInput");
 const unitsInput = document.querySelector(".unitsInput");
 const submitButton = document.querySelector(".submitButton");
 
+const mainWeatherDataElement = document.querySelector(".mainWeatherData");
+const statusWeatherDataWeatherElement = document.querySelector(
+  ".statusWeatherDataWeather"
+);
+const sunstateWeatherDataElement = document.querySelector(
+  ".sunstateWeatherData"
+);
+const timezoneWeatherDataElement = document.querySelector(
+  ".timezoneWeatherData"
+);
+const visibilityWeatherDataElement = document.querySelector(
+  ".visibilityWeatherData"
+);
+const windWeatherDataElement = document.querySelector(".windWeatherData");
+
 // API KEYS:
 
 const openWeatherAPIKey = config.OPEN_WEATHER_API_KEY;
@@ -86,8 +101,6 @@ const get5DayForecastData = async (lat, lon, unit) => {
   }
 };
 
-// TODO: Clean the data
-
 // Submit button event handler and call the functions to find weather data according to the user data
 
 submitButton.addEventListener("click", () => {
@@ -98,7 +111,7 @@ submitButton.addEventListener("click", () => {
 
   (async () => {
     // call the geocoding function
-    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
+    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
 
     // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
@@ -110,26 +123,31 @@ submitButton.addEventListener("click", () => {
     );
 
     // TODO:
-    // 1. Implement date variable
-    // 2. Display the data variables in divs
-    // 3. Figure out the open weather map
-    // 4. Install tailwind
+    // 1. Figure out how to display the data on the weather app
+    // 2. Figure out the open weather map feature
+    // 3. Install tailwind
 
-    // const currentDay = new Date(dataWeather.dt * 1000);
-    // console.log(currentDay.toLocaleDateString("en-US"));
+    const currentDay = new Date(dataWeather.dt * 1000);
+    const day = currentDay.toLocaleDateString("en-US");
 
     // dataWeather stuff
     const dataWeatherMain = Object.entries(dataWeather.main);
     const dataWeatherWeatherStatus = Object.entries(dataWeather.weather[0]);
     const dataWeatherSunState = Object.entries(dataWeather.sys);
+    const dataWeatherWind = Object.entries(dataWeather.wind);
+
     const dataWeatherTimezone = dataWeather.timezone;
     const dataWeatherVisibility = dataWeather.visibility;
-    const dataWeatherWind = Object.entries(dataWeather.wind);
 
     // dataAP stuff
     const dataAPComponents = Object.entries(dataAP.list[0].components);
     const dataAPMain = Object.entries(dataAP.list[0].main);
 
-    console.log(dataAP);
+    console.log(dataWeatherMain);
+    console.log(dataWeatherWeatherStatus);
+    console.log(dataWeatherSunState);
+    console.log(dataWeatherTimezone);
+    console.log(dataWeatherVisibility);
+    console.log(dataWeatherWind);
   })();
 });
