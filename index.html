@@ -4,18 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A modern weather application for the modern world: SkySighter</title>
+    <script
+      src="https://kit.fontawesome.com/676b9add5c.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="/styles/output.css" />
   </head>
-  <body>
-    <label for="locationInput">Enter your city:</label>
-    <input class="locationInput" type="text" name="locationInput" />
-    <label for="unitsInput">Enter your unit of choice:</label>
-    <select class="unitsInput" name="unitsInput">
-      <option value="standard">Standard</option>
-      <option value="metric">Metric</option>
-      <option value="imperial">Imperial</option>
-    </select>
-    <button class="submitButton">Submit</button>
+  <body class="bg-slate-800 text-white">
+    <nav class="flex justify-center py-10">
+      <input
+        class="locationInput p-5 w-1/2 bg-slate-700 rounded-l-full"
+        type="text"
+        name="locationInput"
+        placeholder="Enter city ..."
+      />
+      <select
+        class="unitsInput p-5 bg-slate-700"
+        name="unitsInput"
+        style="-webkit-appearance: none; appearance: none"
+      >
+        <option value="standard">Standard</option>
+        <option value="metric">Metric</option>
+        <option value="imperial">Imperial</option>
+      </select>
+      <button class="submitButton p-5 bg-slate-700 rounded-r-full">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </nav>
     <div class="upper_container">
       <div class="main_container">
         <div class="upper">
