@@ -125,6 +125,7 @@ submitButton.addEventListener("click", () => {
     // TODO:
     // 2. Figure out the open weather map feature
     // 3. Design basic structure with tailwind
+		// 4. Set up variables in tailwind structure html
 
     const currentDay = new Date(dataWeather.dt * 1000);
     const day = currentDay.toLocaleDateString("en-US");
