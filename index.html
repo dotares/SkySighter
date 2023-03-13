@@ -16,7 +16,7 @@
         class="locationInput p-5 w-1/2 bg-slate-700 rounded-l-full"
         type="text"
         name="locationInput"
-        placeholder="Enter city ..."
+        placeholder="      Enter city ..."
       />
       <select
         class="unitsInput p-5 bg-slate-700"
@@ -27,33 +27,37 @@
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>
       </select>
-      <button class="submitButton p-5 bg-slate-700 rounded-r-full">
+      <button class="submitButton px-6 pr-12 bg-slate-700 rounded-r-full">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </nav>
 
-    <div class="upper_container">
-      <div class="main_container">
-        <div class="upper">
-          <div class="main_temp">28deg</div>
-          <div class="status">Rainy</div>
+    <div class="main_large_container flex w-1/2 justify-center">
+      <div class="upper_container">
+        <div class="main_container">
+          <div class="upper">
+            <div class="main_temp">
+              <span>28deg</span>
+            </div>
+            <div class="status">Rainy</div>
+          </div>
+          <div class="lower">
+            <div class="location">Florida, US</div>
+            <div class="datetime">24th July, 2022 5:01AM</div>
+          </div>
         </div>
-        <div class="lower">
-          <div class="location">Florida, US</div>
-          <div class="datetime">24th July, 2022 5:01AM</div>
-        </div>
-      </div>
 
-      <div class="secondary_container">
-        <div class="upper">
-          <div class="wind_status">7.90 km/h 5:01AM</div>
-          <div class="max_and_min_temp">+38deg/+20</div>
-          <div class="sunrise_and_sunset">5:50AM - 6:30PM</div>
-        </div>
-        <div class="lower">
-          <div class="humidity">82%</div>
-          <div class="visibility">12km</div>
-          <div class="feels_like_temp">42deg</div>
+        <div class="secondary_container">
+          <div class="upper">
+            <div class="wind_status">7.90 km/h 5:01AM</div>
+            <div class="max_and_min_temp">+38deg/+20</div>
+            <div class="sunrise_and_sunset">5:50AM - 6:30PM</div>
+          </div>
+          <div class="lower">
+            <div class="humidity">82%</div>
+            <div class="visibility">12km</div>
+            <div class="feels_like_temp">42deg</div>
+          </div>
         </div>
       </div>
     </div>
