@@ -13,13 +13,13 @@
   <body class="bg-slate-800 text-white">
     <nav class="flex justify-center pt-10">
       <input
-        class="locationInput p-5 w-1/2 bg-slate-700 rounded-l-full"
+        class="locationInput p-5 w-1/2 bg-slate-600 border border-slate-500 border-r-slate-600 rounded-l-full"
         type="text"
         name="locationInput"
         placeholder="      Enter city ..."
       />
       <select
-        class="unitsInput p-5 bg-slate-700"
+        class="unitsInput p-5 bg-slate-600 border border-slate-500 border-l-slate-600 border-r-slate-600"
         name="unitsInput"
         style="-webkit-appearance: none; appearance: none"
       >
@@ -27,7 +27,9 @@
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>
       </select>
-      <button class="submitButton px-6 pr-12 bg-slate-700 rounded-r-full">
+      <button
+        class="submitButton px-6 pr-12 bg-slate-600 border border-slate-500 border-l-slate-600 rounded-r-full"
+      >
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </nav>
@@ -39,8 +41,9 @@
     <div class="main_large_container flex m-10 justify-center">
       <div class="upper_container flex flex-row">
         <div
-          class="main_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl"
+          class="main_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl border border-slate-600"
         >
+          <!-- Add border in other areas too TODO -->
           <div class="upper flex flex-col border-b border-slate-500">
             <span class="temp text-6xl pb-3">28°C</span>
             <span class="status text-2xl pb-3">Rainy</span>
@@ -57,31 +60,53 @@
         </div>
 
         <div
-          class="secondary_container m-5 p-9 bg-slate-700 rounded-xl text-center"
+          class="secondary_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 border border-slate-600 rounded-xl text-center flex flex-row"
         >
-          <div class="upper flex flex-row">
-            <div class="wind_status">
-              <i class="fa-solid fa-wind"></i> <br />
-              <span>4 km/h</span>
+          <div class="sect_one flex flex-col justify-around px-9">
+            <div class="upper_one">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-wind fa-2xl"></i>
+              </div>
+              <div class="font-light"><span>4 km/h winds</span></div>
             </div>
-            <div class="max_and_min_temp">
-              <i class="fa-solid fa-temperature-high"></i> <br />
-              <span>+38°C/+20°C</span>
-            </div>
-            <div class="sunrise_and_sunset">
-              <i class="fa-solid fa-sun"></i><br />
-              <span>From 5:50AM to 6:30PM</span>
+            <div class="lower_one">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-droplet fa-2xl"></i>
+              </div>
+              <div class="font-light"><span>84% humidity</span></div>
             </div>
           </div>
-          <div class="lower flex flex-row">
-            <div class="humidity">
-              <i class="fa-solid fa-droplet"></i> <br /><span>82%</span>
+          <div class="sect_two flex flex-col justify-around px-9">
+            <div class="upper_two">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-temperature-high fa-2xl"></i>
+              </div>
+              <div class="font-light"><span>23°C min/36°C max</span></div>
             </div>
-            <div class="visibility">
-              <i class="fa-solid fa-eye"></i> <br /><span>12Km</span>
+            <div class="lower_two">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-eye fa-2xl"></i>
+              </div>
+              <div class="font-light"><span>14 km visibility</span></div>
             </div>
-            <div class="feels_like_temp">
-              <i class="fa-solid fa-fire"></i> <br /><span>42°C</span>
+          </div>
+          <div class="sect_three flex flex-col justify-around px-9">
+            <div class="upper_three">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-sun fa-2xl"></i>
+              </div>
+              <div class="font-light">
+                <span
+                  >From 5:30AM <br />
+                  to 6:30PM</span
+                >
+              </div>
+            </div>
+            <div class="lower_three">
+              <div class="icon pb-5">
+                <i class="fa-solid fa-fire fa-2xl"></i>
+              </div>
+              <div class="font-light"><span>Feels like, 42°C</span></div>
             </div>
           </div>
         </div>
