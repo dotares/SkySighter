@@ -11,7 +11,7 @@
     ></script>
   </head>
   <body class="bg-slate-800 text-white">
-    <nav class="flex justify-center py-10">
+    <nav class="flex justify-center pt-10">
       <input
         class="locationInput p-5 w-1/2 bg-slate-700 rounded-l-full"
         type="text"
@@ -33,34 +33,56 @@
     </nav>
 
     <!-- TODO:
-    1. Design upper container section
-    2. Add good font. -->
+    2. Design upper container section
+    1. Add good font. -->
 
-    <div class="main_large_container flex w-1/2 justify-center">
-      <div class="upper_container">
+    <div class="main_large_container flex w-1/2 m-10 justify-center">
+      <div class="upper_container flex flex-row">
         <div
-          class="main_container p-9 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl"
+          class="main_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl"
         >
           <div class="upper flex flex-col border-b border-slate-500">
             <span class="temp text-6xl pb-3">28°C</span>
             <span class="status text-2xl pb-3">Rainy</span>
           </div>
           <div class="lower flex flex-col">
-            <span class="location py-3">Florida, US</span>
-            <span class="datetime pb-3">24th July, 2022 @ 5:01AM</span>
+            <span class="location py-3"
+              ><i class="fa-solid fa-location-dot m-2"></i> Florida, US</span
+            >
+            <span class="datetime pb-3"
+              ><i class="fa-solid fa-calendar-days m-2"></i> 24th July, 2022 @
+              <span class="text-gray-300">5:01AM</span>
+            </span>
           </div>
         </div>
 
-        <div class="secondary_container">
-          <div class="upper">
-            <div class="wind_status">7.90 km/h 5:01AM</div>
-            <div class="max_and_min_temp">+38deg/+20</div>
-            <div class="sunrise_and_sunset">5:50AM - 6:30PM</div>
+        <div
+          class="secondary_container m-5 p-9 bg-slate-700 rounded-xl text-center"
+        >
+          <div class="upper flex flex-row">
+            <div class="wind_status">
+              <i class="fa-solid fa-wind"></i> <br />
+              <span>4 km/h</span>
+            </div>
+            <div class="max_and_min_temp">
+              <i class="fa-solid fa-temperature-high"></i> <br />
+              <span>+38°C/+20°C</span>
+            </div>
+            <div class="sunrise_and_sunset">
+              <i class="fa-solid fa-sun"></i><br />
+              <span>From 5:50AM to 6:30PM</span>
+            </div>
           </div>
-          <div class="lower">
-            <div class="humidity">82%</div>
-            <div class="visibility">12km</div>
-            <div class="feels_like_temp">42deg</div>
+          <div class="lower flex flex-row">
+            <div class="humidity">
+              <i class="fa-solid fa-droplet"></i> <br /><span>82%</span>
+            </div>
+            <div class="visibility">
+              <i class="fa-solid fa-eye"></i> <br /><span>12Km</span>
+            </div>
+            <div class="feels_like_temp">
+              <i class="fa-solid fa-fire"></i> <br /><span>42°C</span>
+            </div>
           </div>
         </div>
       </div>
