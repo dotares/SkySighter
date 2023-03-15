@@ -10,16 +10,16 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="bg-slate-800 text-white">
+  <!-- TODO: 1. Add forecast structure code -->
+  <body class="bg-blue-100 text-white font-mono">
     <nav class="flex justify-center pt-10">
       <input
-        class="locationInput p-5 w-1/2 bg-slate-600 border border-slate-500 border-r-slate-600 rounded-l-full"
+        class="locationInput p-5 w-1/2 bg-blue-600 border-2 border-blue-900 border-r-0 rounded-l-full"
         type="text"
         name="locationInput"
-        placeholder="      Enter city ..."
       />
       <select
-        class="unitsInput p-5 bg-slate-600 border border-slate-500 border-l-slate-600 border-r-slate-600"
+        class="unitsInput p-5 border-2 border-blue-900 border-l-0 border-r-0 bg-blue-600"
         name="unitsInput"
         style="-webkit-appearance: none; appearance: none"
       >
@@ -28,85 +28,121 @@
         <option value="imperial">Imperial</option>
       </select>
       <button
-        class="submitButton px-6 pr-12 bg-slate-600 border border-slate-500 border-l-slate-600 rounded-r-full"
+        class="submitButton px-6 pr-12 bg-blue-600 border-2 border-blue-900 border-l-0 rounded-r-full"
       >
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </nav>
-
-    <!-- TODO:
-    2. Design upper container section
-    1. Add good font. -->
-
-    <div class="main_large_container flex m-10 justify-center">
-      <div class="upper_container flex flex-row">
-        <div
-          class="main_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 rounded-xl border border-slate-600"
-        >
-          <!-- Add border in other areas too TODO -->
-          <div class="upper flex flex-col border-b border-slate-500">
-            <span class="temp text-6xl pb-3">28°C</span>
-            <span class="status text-2xl pb-3">Rainy</span>
+    <div class="flex justify-center">
+      <div class="main_large_container flex flex-col m-10">
+        <div class="upper_container flex flex-row">
+          <div
+            class="main_container drop-shadow-lg m-5 p-5 text-black bg-white border-2 border-black rounded-xl"
+          >
+            <div class="upper flex flex-col border-b border-black">
+              <span class="temp text-6xl pb-3">28°C</span>
+              <span class="status text-2xl pb-3">Rainy</span>
+            </div>
+            <div class="lower flex flex-col">
+              <span class="location py-3"
+                ><i class="fa-solid fa-location-dot m-2"></i> Florida, US</span
+              >
+              <span class="datetime pb-3"
+                ><i class="fa-solid fa-calendar-days m-2"></i> 24th July, 2022
+              </span>
+              <span class="time"
+                ><i class="fa-solid fa-clock m-2"></i> 5:01AM</span
+              >
+            </div>
           </div>
-          <div class="lower flex flex-col">
-            <span class="location py-3"
-              ><i class="fa-solid fa-location-dot m-2"></i> Florida, US</span
-            >
-            <span class="datetime pb-3"
-              ><i class="fa-solid fa-calendar-days m-2"></i> 24th July, 2022 @
-              <span class="text-gray-300">5:01AM</span>
-            </span>
+
+          <div
+            class="secondary_container drop-shadow-lg m-5 p-5 border-2 border-blue-900 bg-blue-500 rounded-xl text-center flex flex-row"
+          >
+            <div class="sect_one flex flex-col justify-around px-9">
+              <div class="upper_one py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-wind fa-2xl"></i>
+                </div>
+                <div class="font-light"><span>4 km/h winds</span></div>
+              </div>
+              <div class="lower_one py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-droplet fa-2xl"></i>
+                </div>
+                <div class="font-light"><span>84% humidity</span></div>
+              </div>
+            </div>
+            <div class="sect_two flex flex-col justify-around px-9">
+              <div class="upper_two py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-temperature-high fa-2xl"></i>
+                </div>
+                <div class="font-light"><span>23°C min/36°C max</span></div>
+              </div>
+              <div class="lower_two py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-eye fa-2xl"></i>
+                </div>
+                <div class="font-light"><span>14 km visibility</span></div>
+              </div>
+            </div>
+            <div class="sect_three flex flex-col justify-around px-9">
+              <div class="upper_three py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-sun fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span
+                    >From 5:30AM <br />
+                    to 6:30PM</span
+                  >
+                </div>
+              </div>
+              <div class="lower_three py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-fire fa-2xl"></i>
+                </div>
+                <div class="font-light"><span>Feels like, 42°C</span></div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div
-          class="secondary_container m-5 p-9 bg-gradient-to-br from-slate-600 to-slate-700 border border-slate-600 rounded-xl text-center flex flex-row"
-        >
-          <div class="sect_one flex flex-col justify-around px-9">
-            <div class="upper_one">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-wind fa-2xl"></i>
-              </div>
-              <div class="font-light"><span>4 km/h winds</span></div>
+        <div class="lower_container flex flex-row">
+          <div class="map_container m-5 text-white bg-blue-500"></div>
+          <div
+            class="main_container m-5 bg-white text-black rounded-xl border-2 border-black drop-shadow-lg"
+          >
+            <p class="p-5 pb-2 text-xl font-bold underline">Forecast:</p>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2">+29°C/+18°C</div>
+              <div class="px-2">26th July</div>
+              <div class="px-2">Tuesday</div>
             </div>
-            <div class="lower_one">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-droplet fa-2xl"></i>
-              </div>
-              <div class="font-light"><span>84% humidity</span></div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2">+29°C/+18°C</div>
+              <div class="px-2">26th July</div>
+              <div class="px-2">Tuesday</div>
             </div>
-          </div>
-          <div class="sect_two flex flex-col justify-around px-9">
-            <div class="upper_two">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-temperature-high fa-2xl"></i>
-              </div>
-              <div class="font-light"><span>23°C min/36°C max</span></div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2">+29°C/+18°C</div>
+              <div class="px-2">26th July</div>
+              <div class="px-2">Tuesday</div>
             </div>
-            <div class="lower_two">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-eye fa-2xl"></i>
-              </div>
-              <div class="font-light"><span>14 km visibility</span></div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2">+29°C/+18°C</div>
+              <div class="px-2">26th July</div>
+              <div class="px-2">Tuesday</div>
             </div>
-          </div>
-          <div class="sect_three flex flex-col justify-around px-9">
-            <div class="upper_three">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-sun fa-2xl"></i>
-              </div>
-              <div class="font-light">
-                <span
-                  >From 5:30AM <br />
-                  to 6:30PM</span
-                >
-              </div>
-            </div>
-            <div class="lower_three">
-              <div class="icon pb-5">
-                <i class="fa-solid fa-fire fa-2xl"></i>
-              </div>
-              <div class="font-light"><span>Feels like, 42°C</span></div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2">+29°C/+18°C</div>
+              <div class="px-2">26th July</div>
+              <div class="px-2">Tuesday</div>
             </div>
           </div>
         </div>
