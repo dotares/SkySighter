@@ -5,43 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A modern weather application for the modern world: SkySighter</title>
     <link rel="stylesheet" href="/styles/output.css" />
+    <script
+      src="https://kit.fontawesome.com/676b9add5c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
-    <label for="locationInput">Enter your city:</label>
-    <input class="locationInput" type="text" name="locationInput" />
-    <label for="unitsInput">Enter your unit of choice:</label>
-    <select class="unitsInput" name="unitsInput">
-      <option value="standard">Standard</option>
-      <option value="metric">Metric</option>
-      <option value="imperial">Imperial</option>
-    </select>
-    <button class="submitButton">Submit</button>
-    <div class="upper_container">
-      <div class="main_container">
-        <div class="upper">
-          <div class="main_temp">28deg</div>
-          <div class="status">Rainy</div>
-        </div>
-        <div class="lower">
-          <div class="location">Florida, US</div>
-          <div class="datetime">24th July, 2022 5:01AM</div>
-        </div>
-      </div>
+  <!-- TODO: 1. Add forecast structure code -->
+  <body class="bg-blue-100 text-white font-mono">
+    <nav class="flex justify-center pt-10">
+      <input
+        class="locationInput p-5 w-1/2 bg-blue-600 border-2 border-blue-900 border-r-0 rounded-l-full"
+        type="text"
+        name="locationInput"
+      />
+      <select
+        class="unitsInput p-5 border-2 border-blue-900 border-l-0 border-r-0 bg-blue-600"
+        name="unitsInput"
+        style="-webkit-appearance: none; appearance: none"
+      >
+        <option value="standard">Standard</option>
+        <option value="metric">Metric</option>
+        <option value="imperial">Imperial</option>
+      </select>
+      <button
+        class="submitButton px-6 pr-12 bg-blue-600 border-2 border-blue-900 border-l-0 rounded-r-full"
+      >
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </nav>
+    <div class="flex justify-center">
+      <div class="main_container flex flex-col m-10">
+        <div class="upper_container flex flex-row">
+          <div
+            class="quick_info_container drop-shadow-lg m-5 p-5 text-black bg-white border-2 border-black rounded-xl"
+          >
+            <div class="upper flex flex-col border-b border-black">
+              <span class="temp text-6xl pb-3">28°C</span>
+              <span class="status text-2xl pb-3">Rainy</span>
+            </div>
+            <div class="lower flex flex-col">
+              <span class="location py-3"
+                ><i class="fa-solid fa-location-dot m-2"></i> Florida, US</span
+              >
+              <span class="datetime pb-3"
+                ><i class="fa-solid fa-calendar-days m-2"></i> 24th July, 2022
+              </span>
+              <span class="time"
+                ><i class="fa-solid fa-clock m-2"></i> 5:01AM</span
+              >
+            </div>
+          </div>
 
-      <div class="secondary_container">
-        <div class="upper">
-          <div class="wind_status">7.90 km/h 5:01AM</div>
-          <div class="max_and_min_temp">+38deg/+20</div>
-          <div class="sunrise_and_sunset">5:50AM - 6:30PM</div>
+          <div
+            class="secondary_container drop-shadow-lg m-5 p-5 border-2 border-blue-900 bg-blue-500 rounded-xl text-center flex flex-row"
+          >
+            <div class="sect_one flex flex-col justify-around px-9">
+              <div class="upper_one py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-wind fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="winds">4 km/h winds</span>
+                </div>
+              </div>
+              <div class="lower_one py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-droplet fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="humidity">84% humidity</span>
+                </div>
+              </div>
+            </div>
+            <div class="sect_two flex flex-col justify-around px-9">
+              <div class="upper_two py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-temperature-high fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="min_and_max_temp">23°C min/36°C max</span>
+                </div>
+              </div>
+              <div class="lower_two py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-eye fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="visibility">14 km visibility</span>
+                </div>
+              </div>
+            </div>
+            <div class="sect_three flex flex-col justify-around px-9">
+              <div class="upper_three py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-sun fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="sunrise_and_sunset"
+                    >From 5:30AM <br />
+                    to 6:30PM</span
+                  >
+                </div>
+              </div>
+              <div class="lower_three py-5">
+                <div class="icon pb-5">
+                  <i class="fa-solid fa-fire fa-2xl"></i>
+                </div>
+                <div class="font-light">
+                  <span class="feels_like_temp">Feels like, 42°C</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="lower">
-          <div class="humidity">82%</div>
-          <div class="visibility">12km</div>
-          <div class="feels_like_temp">42deg</div>
+        <div class="lower_container flex flex-row">
+          <div class="map_container m-5 text-white bg-blue-500"></div>
+          <div
+            class="main_container m-5 bg-white text-black rounded-xl border-2 border-black drop-shadow-lg"
+          >
+            <p class="p-5 pb-2 text-xl font-bold underline">Forecast:</p>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
+            </div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
+            </div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
+            </div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
+            </div>
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <script src="scripts/config.js"></script>
+    <script src="scripts/dom.js"></script>
+    <script src="scripts/fetch.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>
