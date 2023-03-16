@@ -1,108 +1,3 @@
-// Select DOM elements from HTML
-
-const locationInput = document.querySelector(".locationInput");
-const unitsInput = document.querySelector(".unitsInput");
-const submitButton = document.querySelector(".submitButton");
-
-const mainWeatherDataElement = document.querySelector(".mainWeatherData");
-const statusWeatherDataWeatherElement = document.querySelector(
-  ".statusWeatherDataWeather"
-);
-const sunstateWeatherDataElement = document.querySelector(
-  ".sunstateWeatherData"
-);
-const timezoneWeatherDataElement = document.querySelector(
-  ".timezoneWeatherData"
-);
-const visibilityWeatherDataElement = document.querySelector(
-  ".visibilityWeatherData"
-);
-const windWeatherDataElement = document.querySelector(".windWeatherData");
-
-// API KEYS:
-
-const openWeatherAPIKey = config.OPEN_WEATHER_API_KEY;
-
-// Function for Geo-coding
-
-const getLatitudeAndLongitude = async (location) => {
-  try {
-    const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${openWeatherAPIKey}`
-    );
-
-    if (!response.ok)
-      throw new Error(`${response.statusText}: (${response.status})`);
-
-    const data = await response.json();
-
-    const { lat: latitude, lon: longitude } = await data[0];
-
-    return { latitude, longitude };
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-// Function for getting weather data
-
-const getWeatherData = async (lat, lon, unit) => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
-    );
-
-    if (!response.ok)
-      throw new Error(`${response.statusText}: (${response.status})`);
-
-    const data = await response.json();
-
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-// Function for getting air pollution data
-
-const getAirPollutionData = async (lat, lon, unit) => {
-  try {
-    const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
-    );
-
-    if (!response.ok)
-      throw new Error(`${response.statusText}: (${response.status})`);
-
-    const data = await response.json();
-
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-// Function for getting 5 day forcast with 3 hour steps
-
-const get5DayForecastData = async (lat, lon, unit) => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`
-    );
-
-    if (!response.ok)
-      throw new Error(`${response.statusText}: (${response.status})`);
-
-    const data = await response.json();
-
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-// Submit button event handler and call the functions to find weather data according to the user data
-
 submitButton.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitsInput.value;
@@ -111,7 +6,9 @@ submitButton.addEventListener("click", () => {
 
   (async () => {
     // call the geocoding function
-    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
+    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
+
+    console.log(latitude, longitude);
 
     // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
@@ -123,6 +20,7 @@ submitButton.addEventListener("click", () => {
     );
 
     // TODO:
+    // 1. Clean the Javascript code for more features
     // 2. Figure out the open weather map feature
     // 3. Design basic structure with tailwind
     // 4. Set up variables in tailwind structure html
@@ -143,5 +41,14 @@ submitButton.addEventListener("click", () => {
     // dataAP stuff
     const dataAPComponents = Object.entries(dataAP.list[0].components);
     const dataAPMain = Object.entries(dataAP.list[0].main);
+
+    console.log(dataWeatherMain);
+    console.log(dataWeatherWeatherStatus);
+    console.log(dataWeatherSunState);
+    console.log(dataWeatherWind);
+    console.log(dataWeatherTimezone);
+    console.log(dataWeatherVisibility);
+    console.log(dataAPComponents);
+    console.log(dataAPMain);
   })();
 });

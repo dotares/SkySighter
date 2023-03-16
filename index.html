@@ -34,10 +34,10 @@
       </button>
     </nav>
     <div class="flex justify-center">
-      <div class="main_large_container flex flex-col m-10">
+      <div class="main_container flex flex-col m-10">
         <div class="upper_container flex flex-row">
           <div
-            class="main_container drop-shadow-lg m-5 p-5 text-black bg-white border-2 border-black rounded-xl"
+            class="quick_info_container drop-shadow-lg m-5 p-5 text-black bg-white border-2 border-black rounded-xl"
           >
             <div class="upper flex flex-col border-b border-black">
               <span class="temp text-6xl pb-3">28°C</span>
@@ -64,13 +64,17 @@
                 <div class="icon pb-5">
                   <i class="fa-solid fa-wind fa-2xl"></i>
                 </div>
-                <div class="font-light"><span>4 km/h winds</span></div>
+                <div class="font-light">
+                  <span class="winds">4 km/h winds</span>
+                </div>
               </div>
               <div class="lower_one py-5">
                 <div class="icon pb-5">
                   <i class="fa-solid fa-droplet fa-2xl"></i>
                 </div>
-                <div class="font-light"><span>84% humidity</span></div>
+                <div class="font-light">
+                  <span class="humidity">84% humidity</span>
+                </div>
               </div>
             </div>
             <div class="sect_two flex flex-col justify-around px-9">
@@ -78,13 +82,17 @@
                 <div class="icon pb-5">
                   <i class="fa-solid fa-temperature-high fa-2xl"></i>
                 </div>
-                <div class="font-light"><span>23°C min/36°C max</span></div>
+                <div class="font-light">
+                  <span class="min_and_max_temp">23°C min/36°C max</span>
+                </div>
               </div>
               <div class="lower_two py-5">
                 <div class="icon pb-5">
                   <i class="fa-solid fa-eye fa-2xl"></i>
                 </div>
-                <div class="font-light"><span>14 km visibility</span></div>
+                <div class="font-light">
+                  <span class="visibility">14 km visibility</span>
+                </div>
               </div>
             </div>
             <div class="sect_three flex flex-col justify-around px-9">
@@ -93,7 +101,7 @@
                   <i class="fa-solid fa-sun fa-2xl"></i>
                 </div>
                 <div class="font-light">
-                  <span
+                  <span class="sunrise_and_sunset"
                     >From 5:30AM <br />
                     to 6:30PM</span
                   >
@@ -103,7 +111,9 @@
                 <div class="icon pb-5">
                   <i class="fa-solid fa-fire fa-2xl"></i>
                 </div>
-                <div class="font-light"><span>Feels like, 42°C</span></div>
+                <div class="font-light">
+                  <span class="feels_like_temp">Feels like, 42°C</span>
+                </div>
               </div>
             </div>
           </div>
@@ -116,39 +126,41 @@
             <p class="p-5 pb-2 text-xl font-bold underline">Forecast:</p>
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2">+29°C/+18°C</div>
-              <div class="px-2">26th July</div>
-              <div class="px-2">Tuesday</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
             </div>
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2">+29°C/+18°C</div>
-              <div class="px-2">26th July</div>
-              <div class="px-2">Tuesday</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
             </div>
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2">+29°C/+18°C</div>
-              <div class="px-2">26th July</div>
-              <div class="px-2">Tuesday</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
             </div>
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2">+29°C/+18°C</div>
-              <div class="px-2">26th July</div>
-              <div class="px-2">Tuesday</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
             </div>
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2">+29°C/+18°C</div>
-              <div class="px-2">26th July</div>
-              <div class="px-2">Tuesday</div>
+              <div class="px-2 forecast_min_and_max_temp">+29°C/+18°C</div>
+              <div class="px-2 forecast_date">26th July</div>
+              <div class="px-2 forecast_day">Tuesday</div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <script src="scripts/config.js"></script>
+    <script src="scripts/dom.js"></script>
+    <script src="scripts/fetch.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>
