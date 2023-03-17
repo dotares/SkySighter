@@ -1,8 +1,8 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 3. fix date issues
 // 4. add forecast functionality
+// 3. fix date issues
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
@@ -108,8 +108,6 @@ submitButton.addEventListener("click", () => {
 
 		const sunrise = new Date(dataWeather.sys.sunrise * 1000);
 		const sunset = new Date(dataWeather.sys.sunset * 1000);
-
-		console.log(sunrise);
 
 		const sunriseFormatted = `${String(sunrise.getHours()).padStart(
 			2,
