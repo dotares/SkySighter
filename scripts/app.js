@@ -1,7 +1,6 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 1. add map functionality
 // 2. add forecast functionality
 // 3. fix date issues
 // 4. add user location weather functionality
@@ -13,10 +12,10 @@
 // >> Make it OOP
 // ***************************************************
 
-// Submit button event handler and call the functions to find weather data according to the user data
-
+// make the map object
 const map = L.map("map");
 
+// Submit button event handler and call the functions to find weather data according to the user data
 submitButton.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitsInput.value;
@@ -25,7 +24,7 @@ submitButton.addEventListener("click", () => {
 
   (async () => {
     // call the geocoding function
-    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
+    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
 
     // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
@@ -140,10 +139,21 @@ submitButton.addEventListener("click", () => {
         0
       )}℉`;
 
+    // Map setup for changing the view of the map according to the location
     map.setView([latitude, longitude], 13);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
     }).addTo(map);
+
+    // filter out the timestamps without the 12 hour unit
+
+    // const dates = [];
+
+    // for (let step of dataForecast.list) {
+    // }
+
+    // const result = dates.filter((date) => date.includes("00:00:00"));
+    // console.log(result);
   })();
 });
