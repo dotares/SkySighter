@@ -1,8 +1,10 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 4. add forecast functionality
+// 1. add map functionality
+// 2. add forecast functionality
 // 3. fix date issues
+// 4. add user location weather functionality
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
@@ -12,6 +14,8 @@
 // ***************************************************
 
 // Submit button event handler and call the functions to find weather data according to the user data
+
+const map = L.map("map");
 
 submitButton.addEventListener("click", () => {
   const userLocation = locationInput.value;
@@ -135,5 +139,11 @@ submitButton.addEventListener("click", () => {
       feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
         0
       )}℉`;
+
+    map.setView([latitude, longitude], 13);
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+    }).addTo(map);
   })();
 });
