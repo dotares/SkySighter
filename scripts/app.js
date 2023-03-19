@@ -4,6 +4,7 @@
 // 2. add forecast functionality
 // 3. fix date issues
 // 4. add user location weather functionality
+// 5. add average of the 3 hour steps instead of the first one
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
@@ -140,14 +141,13 @@ submitButton.addEventListener("click", () => {
       maxZoom: 19,
     }).addTo(map);
 
-    // filter out the timestamps without the 12 hour unit
+    // filter out the timestamps without the 00 hour unit
+    const [...timestamps] = dataForecast.list;
 
-    // const dates = [];
+    const result = timestamps.filter((step) =>
+      step.dt_txt.includes("00:00:00")
+    );
 
-    // for (let step of dataForecast.list) {
-    // }
-
-    // const result = dates.filter((date) => date.includes("00:00:00"));
-    // console.log(result);
+    console.log(result);
   })();
 });
