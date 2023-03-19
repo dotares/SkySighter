@@ -1,7 +1,6 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 2. add forecast functionality
 // 3. fix date issues
 // 4. add user location weather functionality
 // 5. add average of the 3 hour steps instead of the first one
@@ -148,6 +147,20 @@ submitButton.addEventListener("click", () => {
       step.dt_txt.includes("00:00:00")
     );
 
-    console.log(result);
+    // add html in the forecast box of the weather application
+    for (let day of result) {
+      const html = `
+            <div class="day flex flex-row p-5">
+              <div class="px-2">icon</div>
+              <div class="px-2 forecast_min_and_max_temp">${
+                day.main.temp_max
+              }°C/${day.main.temp_min}°C</div>
+              <div class="px-2 forecast_date">${day.dt_txt.split(" ")[0]}</div>
+              <div class="px-2 forecast_day">Day</div>
+            </div>
+      `;
+
+      insertTxt.insertAdjacentHTML("beforeend", html);
+    }
   })();
 });
