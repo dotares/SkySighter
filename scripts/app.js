@@ -147,8 +147,20 @@ submitButton.addEventListener("click", () => {
       step.dt_txt.includes("00:00:00")
     );
 
+    const days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+
     // add html in the forecast box of the weather application
     for (let day of result) {
+      const date = new Date(day.dt * 1000);
+      const dayNumber = date.getDay();
       const html = `
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
@@ -156,7 +168,7 @@ submitButton.addEventListener("click", () => {
                 day.main.temp_max
               }°C/${day.main.temp_min}°C</div>
               <div class="px-2 forecast_date">${day.dt_txt.split(" ")[0]}</div>
-              <div class="px-2 forecast_day">Day</div>
+              <div class="px-2 forecast_day">${days[dayNumber - 1]}</div>
             </div>
       `;
 
