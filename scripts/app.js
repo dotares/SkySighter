@@ -1,15 +1,19 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 3. fix date issues
 // 4. add user location weather functionality
-// 5. add average of the 3 hour steps instead of the first one
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
-// inside of a single if statement.
+// inside of a single if statement
+//
+// >> Fix Date functionality
+//
+// >> Add average of the 3 hour steps instead of the first one
 //
 // >> Make it OOP
+//
+// >> New boxy design and fix all the glitches
 // ***************************************************
 
 // make the map object
@@ -24,7 +28,7 @@ submitButton.addEventListener("click", () => {
 
   (async () => {
     // call the geocoding function
-    const { latitude, longitude } = await getLatitudeAndLongitude("New York");
+    const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
 
     // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
