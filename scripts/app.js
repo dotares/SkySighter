@@ -72,17 +72,14 @@ submitButton.addEventListener("click", () => {
     timeTxt.innerHTML = `<i class="fa-solid fa-clock m-2"></i> ${currentTime}`;
 
     // Secondary info winds
-
     if (userUnit === "imperial")
       windsTxt.textContent = `${dataWeather.wind.speed} mph winds`;
     else windsTxt.textContent = `${dataWeather.wind.speed} m/s winds`;
 
     // Secondary info humidity
-
     humidityTxt.textContent = `${dataWeather.main.humidity}% humidity`;
 
     // Secondary info temp min and max
-
     if (userUnit === "standard")
       minAndMaxTempTxt.textContent = `${dataWeather.main.temp_min.toFixed(
         0
@@ -97,7 +94,6 @@ submitButton.addEventListener("click", () => {
       )}℉ min/${dataWeather.main.temp_max.toFixed(0)}℉ max`;
 
     // Secondary info visibility
-
     if (userUnit === "imperial")
       visibilityTxt.textContent = `${(
         dataWeather.visibility * 0.000621371
@@ -108,7 +104,6 @@ submitButton.addEventListener("click", () => {
       } km visibility`;
 
     // Secondary info sunrise to sunset
-
     const sunrise = new Date(dataWeather.sys.sunrise * 1000);
     const sunset = new Date(dataWeather.sys.sunset * 1000);
 
@@ -125,7 +120,6 @@ submitButton.addEventListener("click", () => {
     sunriseAndSunsetTxt.innerHTML = `From ${sunriseFormatted} <br> to ${sunsetFormatted}`;
 
     // Secondary info feels like temperature
-
     if (userUnit === "standard")
       feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
         0
