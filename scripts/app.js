@@ -1,17 +1,17 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
-// 4. add user location weather functionality
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
 // inside of a single if statement
+// // >> Fix Date functionality
 //
-// >> Fix Date functionality
+// >> Make it OOP
 //
 // >> Add average of the 3 hour steps instead of the first one
 //
-// >> Make it OOP
+// >> Add user location weather functionality
 //
 // >> New boxy design and fix all the glitches
 // ***************************************************
@@ -161,6 +161,8 @@ submitButton.addEventListener("click", () => {
       "Sunday",
     ];
 
+    let finalHtml = ``;
+
     // add html in the forecast box of the weather application
     for (let day of result) {
       const date = new Date(day.dt * 1000);
@@ -168,15 +170,17 @@ submitButton.addEventListener("click", () => {
       const html = `
             <div class="day flex flex-row p-5">
               <div class="px-2">icon</div>
-              <div class="px-2 forecast_min_and_max_temp">${
-                day.main.temp_max
-              }°C/${day.main.temp_min}°C</div>
+              <div class="px-2 forecast_min_and_max_temp">${day.main.temp_max}${
+        userUnit === "metric" ? "°C" : "°F"
+      }/${day.main.temp_min}${userUnit === "metric" ? "°C" : "°F"}</div>
               <div class="px-2 forecast_date">${day.dt_txt.split(" ")[0]}</div>
               <div class="px-2 forecast_day">${days[dayNumber - 1]}</div>
             </div>
       `;
 
-      insertTxt.insertAdjacentHTML("beforeend", html);
+      finalHtml += html;
     }
+
+    insertTxt.innerHTML = finalHtml;
   })();
 });
