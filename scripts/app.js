@@ -56,10 +56,8 @@ submitButton.addEventListener("click", () => {
 		)}:${String(currentDay.getMinutes()).padStart(2, "0")}`;
 
 		// Quick info temperature status
-		if (userUnit === "standard")
-			tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)} K`;
 		if (userUnit === "metric")
-			tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}℃`;
+			tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}℃`;
 		if (userUnit === "imperial")
 			tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}℉`;
 
@@ -171,17 +169,21 @@ submitButton.addEventListener("click", () => {
 			const date = new Date(day.dt * 1000);
 			const dayNumber = date.getDay();
 			const html = `
-            <div class="day flex flex-row p-5">
-              <div class="px-2"><img src="https://openweathermap.org/img/wn/${
+            <div class="day w-full flex flex-row justify-evenly p-5">
+              <div class="px-2 text-xl"><img src="https://openweathermap.org/img/wn/${
 					day.weather[0].icon
 				}.png"></div>
-              <div class="px-2 forecast_min_and_max_temp">${
+              <div class="px-2 text-xl forecast_min_and_max_temp">${
 					userUnit === "metric"
 						? `${day.main.temp}°C`
 						: `${day.main.temp}°F`
 				}</div>
-              <div class="px-2 forecast_date">${day.dt_txt.split(" ")[0]}</div>
-              <div class="px-2 forecast_day">${days[dayNumber - 1]}</div>
+              <div class="px-2 text-xl forecast_date">${
+					day.dt_txt.split(" ")[0]
+				}</div>
+              <div class="px-2 text-xl forecast_day">${
+					days[dayNumber - 1]
+				}</div>
             </div>
       `;
 
