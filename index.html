@@ -37,7 +37,7 @@
 				name="locationInput"
 			/>
 			<select
-				class="unitsInput text-xl p-10"
+				class="unitsInput text-center text-xl p-10"
 				name="unitsInput"
 				style="-webkit-appearance: none; appearance: none"
 			>
@@ -61,15 +61,15 @@
 						</div>
 						<div class="lower flex flex-col">
 							<span class="location text-2xl p-5"
-								><i class="fa-solid fa-location-dot"></i> ---,
-								--</span
+								><i class="fa-solid fa-location-dot m-2"></i>
+								---, --</span
 							>
 							<span class="datetime text-2xl p-5"
-								><i class="fa-solid fa-calendar-days"></i>
+								><i class="fa-solid fa-calendar-days m-2"></i>
 								-- ---, ----
 							</span>
 							<span class="time text-2xl p-5"
-								><i class="fa-solid fa-clock"></i> --:--
+								><i class="fa-solid fa-clock m-2"></i> --:--
 							</span>
 						</div>
 					</div>
@@ -172,10 +172,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="lower_container">
-					<div id="map" class="map_container"></div>
-					<div class="main_container">
-						<p class="forecast_heading">Forecast:</p>
+				<div class="lower_container flex flex-row">
+					<div id="map" class="map_container basis-2/3"></div>
+					<div class="main_container basis-1/3 w-full">
+						<p class="forecast_heading"></p>
 						<div class="insert"></div>
 					</div>
 				</div>
