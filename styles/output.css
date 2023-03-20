@@ -529,16 +529,20 @@ video {
   flex-direction: column;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
+.p-5 {
+  padding: 1.25rem;
 }
 
-.align-middle {
-  vertical-align: middle;
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {
