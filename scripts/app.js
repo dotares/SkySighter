@@ -1,11 +1,13 @@
 // ***************************************************
 // TODO and REFACTOR Notes:
 //
+// 1. Add icons from the weather api
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
 // inside of a single if statement
-// // >> Fix Date functionality
+//
+// >> Fix Date functionality
 //
 // >> Make it OOP
 //
@@ -41,8 +43,6 @@ submitButton.addEventListener("click", () => {
 			userUnit
 		);
 
-		console.log(dataWeather);
-
 		const currentDay = new Date(dataWeather.dt * 1000);
 
 		const options = {
@@ -65,7 +65,7 @@ submitButton.addEventListener("click", () => {
 			tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}℉`;
 
 		// Quick info container weather status
-		statusTxt.textContent = `${dataWeather.weather[0].main}`;
+		statusTxt.innerHTML = `<img src="https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}.png">${dataWeather.weather[0].main}`;
 
 		// Quick info container location
 		locationTxt.innerHTML = `<i class="fa-solid fa-location-dot m-2"></i> ${userLocation}, ${dataWeather.sys.country}`;
@@ -173,7 +173,9 @@ submitButton.addEventListener("click", () => {
 			const dayNumber = date.getDay();
 			const html = `
             <div class="day flex flex-row p-5">
-              <div class="px-2">icon</div>
+              <div class="px-2"><img src="https://openweathermap.org/img/wn/${
+					day.weather[0].icon
+				}.png"></div>
               <div class="px-2 forecast_min_and_max_temp">${
 					userUnit === "metric"
 						? `${day.main.temp}°C`
