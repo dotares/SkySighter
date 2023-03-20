@@ -64,7 +64,7 @@ submitButton.addEventListener("click", () => {
 			tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}℉`;
 
 		// Quick info container weather status
-		statusTxt.innerHTML = `<img src="https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}.png">${dataWeather.weather[0].main}`;
+		statusTxt.innerHTML = `<div><img src="https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}.png"></div><div>${dataWeather.weather[0].main}</div>`;
 
 		// Quick info container location
 		locationTxt.innerHTML = `<i class="fa-solid fa-location-dot m-2"></i> ${userLocation}, ${dataWeather.sys.country}`;

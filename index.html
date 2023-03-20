@@ -6,6 +6,12 @@
 		<title>
 			A modern weather application for the modern world: SkySighter
 		</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			rel="stylesheet"
 			href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -23,11 +29,15 @@
 			crossorigin="anonymous"
 		></script>
 	</head>
-	<body class="">
-		<nav class="">
-			<input class="locationInput" type="text" name="locationInput" />
+	<body>
+		<nav class="flex flex-row">
+			<input
+				class="locationInput text-xl p-10 w-full"
+				type="text"
+				name="locationInput"
+			/>
 			<select
-				class="unitsInput"
+				class="unitsInput text-xl p-10"
 				name="unitsInput"
 				style="-webkit-appearance: none; appearance: none"
 			>
@@ -35,28 +45,30 @@
 				<option value="imperial">Imperial</option>
 				<option value="standard">Standard</option>
 			</select>
-			<button class="submitButton">
+			<button class="submitButton text-xl p-10">
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
 		</nav>
 		<div class="">
 			<div class="main_container">
-				<div class="upper_container">
-					<div class="quick_info_container">
-						<div class="upper">
-							<span class="temp">--°-</span>
-							<span class="status">----</span>
+				<div class="upper_container flex flex-row">
+					<div class="quick_info_container flex flex-col p-10">
+						<div class="upper flex flex-col">
+							<span class="temp text-8xl p-2">--°-</span>
+							<span class="status text-4xl p-2 flex flex-row"
+								>----</span
+							>
 						</div>
-						<div class="lower">
-							<span class="location"
+						<div class="lower flex flex-col">
+							<span class="location text-2xl p-2"
 								><i class="fa-solid fa-location-dot"></i> ---,
 								--</span
 							>
-							<span class="datetime"
+							<span class="datetime text-2xl p-2"
 								><i class="fa-solid fa-calendar-days"></i>
 								-- ---, ----
 							</span>
-							<span class="time"
+							<span class="time text-2xl p-2"
 								><i class="fa-solid fa-clock"></i> --:--
 							</span>
 						</div>
