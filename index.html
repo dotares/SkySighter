@@ -29,15 +29,28 @@
 			crossorigin="anonymous"
 		></script>
 	</head>
-	<body class="bg-tealy-light">
+	<body class="">
 		<nav class="flex flex-row">
 			<input
-				class="locationInput bg-tealy-gray text-xl p-10 w-full"
+				class="
+					locationInput
+					text-tealy-light
+					bg-tealy-darker
+					text-xl
+					p-10
+					w-full
+				"
 				type="text"
 				name="locationInput"
 			/>
 			<select
-				class="unitsInput text-center bg-tealy-gray text-xl p-10"
+				class="
+					unitsInput
+					text-center text-tealy-light
+					bg-tealy-darker
+					text-xl
+					p-10
+				"
 				name="unitsInput"
 				style="-webkit-appearance: none; appearance: none"
 			>
@@ -45,7 +58,14 @@
 				<option value="imperial">Imperial</option>
 				<option value="standard">Standard</option>
 			</select>
-			<button class="submitButton text-xl bg-tealy-gray p-10">
+			<button
+				class="
+					submitButton
+					text-xl text-tealy-light
+					bg-tealy-darker
+					p-10
+				"
+			>
 				<i class="fa-solid fa-magnifying-glass"></i>
 			</button>
 		</nav>
@@ -181,6 +201,19 @@
 							</div>
 						</div>
 					</div>
+					<div
+						class="
+							main_container
+							text-tealy-light
+							p-10
+							w-full
+							flex flex-col
+							bg-tealy-dark
+						"
+					>
+						<p class="forecast_heading"></p>
+						<div class="insert"></div>
+					</div>
 				</div>
 				<div
 					class="
@@ -190,11 +223,7 @@
 						flex flex-row
 					"
 				>
-					<div id="map" class="map_container h-full basis-2/3"></div>
-					<div class="main_container basis-1/3 w-full">
-						<p class="forecast_heading"></p>
-						<div class="insert"></div>
-					</div>
+					<div id="map" class="map_container h-full w-full"></div>
 				</div>
 			</div>
 		</div>

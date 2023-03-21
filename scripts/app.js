@@ -1,6 +1,7 @@
 // *************************************************** // TODO and REFACTOR Notes:
 //
 // 1. Add icons from the weather api
+// 2. Fix Sunday date issue
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
@@ -141,9 +142,15 @@ submitButton.addEventListener("click", () => {
 		// Map setup for changing the view of the map according to the location
 		map.setView([latitude, longitude], 13);
 
-		L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-			maxZoom: 19,
-		}).addTo(map);
+		const CartoDB_Voyager = L.tileLayer(
+			"https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+			{
+				attribution:
+					'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+				subdomains: "abcd",
+				maxZoom: 20,
+			}
+		).addTo(map);
 
 		// filter out the timestamps without the 00 hour unit
 		const [...timestamps] = dataForecast.list;
@@ -153,13 +160,13 @@ submitButton.addEventListener("click", () => {
 		);
 
 		const days = [
+			"Sunday",
 			"Monday",
 			"Tuesday",
 			"Wednesday",
 			"Thursday",
 			"Friday",
 			"Saturday",
-			"Sunday",
 		];
 
 		let finalHtml = ``;
@@ -181,9 +188,7 @@ submitButton.addEventListener("click", () => {
               <div class="px-2 text-xl forecast_date">${
 					day.dt_txt.split(" ")[0]
 				}</div>
-              <div class="px-2 text-xl forecast_day">${
-					days[dayNumber - 1]
-				}</div>
+              <div class="px-2 text-xl forecast_day">${days[dayNumber]}</div>
             </div>
       `;
 
