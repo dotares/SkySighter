@@ -1,4 +1,4 @@
-// *************************************************** // TODO and REFACTOR Notes:
+// // TODO and REFACTOR Notes:
 // 1. Add icons from the weather api
 // 2. Fix Sunday date issue
 //
@@ -191,7 +191,6 @@ submitButton.addEventListener("click", () => {
               <div class="px-2 text-xl forecast_day">${days[dayNumber]}</div>
             </div>
       `;
-
             finalHtml += html;
         }
         insertTxt.innerHTML = finalHtml;
