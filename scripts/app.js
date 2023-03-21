@@ -1,5 +1,4 @@
 // *************************************************** // TODO and REFACTOR Notes:
-//
 // 1. Add icons from the weather api
 // 2. Fix Sunday date issue
 //
