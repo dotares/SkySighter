@@ -172,6 +172,7 @@ submitButton.addEventListener("click", () => {
 		let finalHtml = ``;
 
 		// add html in the forecast box of the weather application
+
 		for (let day of result) {
 			const date = new Date(day.dt * 1000);
 			const dayNumber = date.getDay();
@@ -194,7 +195,6 @@ submitButton.addEventListener("click", () => {
 
 			finalHtml += html;
 		}
-
 		insertTxt.innerHTML = finalHtml;
 	})();
 });
