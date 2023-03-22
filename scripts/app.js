@@ -1,6 +1,4 @@
 // TODO and REFACTOR Notes:
-// 1. Add icons from the weather api
-// 2. Fix Sunday date issue
 //
 // >> No need for multiple if statements for a single
 // case. Just add all of the single case executions
