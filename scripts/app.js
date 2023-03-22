@@ -57,9 +57,9 @@ submitButton.addEventListener("click", () => {
 
         // Quick info temperature status
         if (userUnit === "metric")
-            tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}℃`;
+            tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}°C`;
         if (userUnit === "imperial")
-            tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}℉`;
+            tempTxt.textContent = `${dataWeather.main.temp.toFixed(1)}°F`;
 
         // Quick info container weather status
         statusTxt.innerHTML = `<div><img src="https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}.png"></div><div>${dataWeather.weather[0].main}</div>`;
@@ -92,11 +92,11 @@ submitButton.addEventListener("click", () => {
         if (userUnit === "metric")
             minAndMaxTempTxt.textContent = `${dataWeather.main.temp_min.toFixed(
                 0
-            )}℃ min/${dataWeather.main.temp_max.toFixed(0)}℃ max`;
+            )}°C min/${dataWeather.main.temp_max.toFixed(0)}°C max`;
         if (userUnit === "imperial")
             minAndMaxTempTxt.textContent = `${dataWeather.main.temp_min.toFixed(
                 0
-            )}℉ min/${dataWeather.main.temp_max.toFixed(0)}℉ max`;
+            )}°F min/${dataWeather.main.temp_max.toFixed(0)}°F max`;
 
         // Secondary info visibility
         if (userUnit === "imperial")
@@ -132,11 +132,11 @@ submitButton.addEventListener("click", () => {
         if (userUnit === "metric")
             feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
                 0
-            )}℃`;
+            )}°C`;
         if (userUnit === "imperial")
             feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
                 0
-            )}℉`;
+            )}°F`;
 
         // Map setup for changing the view of the map according to the location
         map.setView([latitude, longitude], 13);
