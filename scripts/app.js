@@ -16,17 +16,17 @@
 // ***************************************************
 
 // make the map object
-const map = L.map("map");
+const map = L.map("map", {
+  zoomControl: false,
+  dragging: false,
+});
 
-// Submit button event handler and call the functions to find weather data according to the user data
+// submit button event handler and call the functions to find weather data according to the user data
 searchBtn.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitDropdown.value;
 
-  console.log(userLocation);
-  console.log(userUnit);
   // function call async
-
   (async () => {
     // call the geocoding function
     const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
@@ -137,16 +137,10 @@ searchBtn.addEventListener("click", () => {
     //   )}°F`;
 
     // Map setup for changing the view of the map according to the location
-    map.setView([latitude, longitude], 13);
+    map.setView([latitude, longitude], 12);
 
-    const CartoDB_Voyager = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: "abcd",
-        maxZoom: 20,
-      }
+    const Esri_WorldImagery = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
     ).addTo(map);
 
     // filter out the timestamps without the 00 hour unit
