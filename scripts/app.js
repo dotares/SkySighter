@@ -21,6 +21,16 @@ const map = L.map("map", {
   dragging: false,
 });
 
+unitDropdown.addEventListener("click", () => {
+  if (unitDropdown.textContent === "Metric") {
+    unitDropdown.textContent = "Imperial";
+    unitDropdown.value = "Imperial";
+  } else {
+    unitDropdown.textContent = "Metric";
+    unitDropdown.value = "Metric";
+  }
+});
+
 // submit button event handler and call the functions to find weather data according to the user data
 searchBtn.addEventListener("click", () => {
   const userLocation = locationInput.value;

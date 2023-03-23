@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -31,24 +31,28 @@
   </head>
   <body>
     <div class="mainContainer flex flex-col md:flex-row">
-      <div class="infoContainer w-full">
-        <div class="searchContainer flex flex-row justify-center">
+      <div class="infoContainer relative w-full">
+        <div class="searchContainer p-5 flex flex-row justify-center text-2xl">
           <input
             type="text"
-            class="locationInput w-full"
+            class="locationInput p-2 px-4 w-full"
             name="locationInput"
           />
-          <select
+          <div class="unitDropdown p-2 px-4 font-semibold">Metric</div>
+          <!-- <select
             name="unitDropdown"
             class="unitDropdown"
             style="-webkit-appearance: none; appearance: none"
           >
             <option value="metric">Metric</option>
             <option value="imperial">Imperial</option>
-          </select>
-          <button class="searchBtn">
+          </select> -->
+          <button class="searchBtn p-2 px-4">
             <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
           </button>
+        </div>
+        <div class="absolute bottom-0 left-0 p-5 font-light hidden md:inline">
+          SkySighter
         </div>
       </div>
       <div id="map" class="mapContainer h-screen w-full md:w-1/3"></div>
