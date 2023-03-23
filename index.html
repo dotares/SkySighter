@@ -32,30 +32,37 @@
   <body>
     <div class="mainContainer flex flex-col md:flex-row">
       <div class="infoContainer relative w-full">
-        <div class="searchContainer p-5 flex flex-row justify-center text-2xl">
-          <input
-            type="text"
-            class="locationInput p-2 px-4 w-full focus:outline-none"
-            name="locationInput"
-          />
-          <div
-            class="unitDropdown p-2 px-4 font-semibold cursor-default select-none"
-          >
-            Metric
+        <form action="#" method="get">
+          <div class="searchContainer flex flex-row justify-center text-2xl">
+            <input
+              type="text"
+              class="locationInput w-full focus:outline-none"
+              name="locationInput"
+              placeholder="Enter location..."
+              required="required"
+            />
+            <div class="unitDropdown font-semibold cursor-default select-none">
+              Metric
+            </div>
+            <button class="searchBtn" type="submit">
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: #000000"
+              ></i>
+            </button>
           </div>
-          <!-- <select
-            name="unitDropdown"
-            class="unitDropdown"
-            style="-webkit-appearance: none; appearance: none"
-          >
-            <option value="metric">Metric</option>
-            <option value="imperial">Imperial</option>
-          </select> -->
-          <button class="searchBtn p-2 px-4">
-            <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
-          </button>
+        </form>
+
+        <div class="weatherDataContainer">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-        <div class="absolute bottom-0 left-0 p-5 font-light hidden md:inline">
+
+        <div
+          class="brandContainer absolute bottom-0 left-0 font-light hidden md:inline"
+        >
           SkySighter
         </div>
       </div>
