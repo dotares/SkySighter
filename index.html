@@ -31,35 +31,29 @@
   </head>
   <body>
     <div class="mainContainer flex flex-col md:flex-row">
-      <div class="infoContainer relative w-full">
-        <form action="#" method="get">
-          <div class="searchContainer flex flex-row justify-center text-2xl">
-            <input
-              type="text"
-              class="locationInput w-full focus:outline-none"
-              name="locationInput"
-              placeholder="Enter location..."
-              required="required"
-            />
-            <div class="unitDropdown font-semibold cursor-default select-none">
-              Metric
-            </div>
-            <button class="searchBtn" type="submit">
-              <i
-                class="fa-solid fa-magnifying-glass"
-                style="color: #000000"
-              ></i>
-            </button>
+      <div class="infoContainer m-8 relative w-full">
+        <div class="searchContainer flex flex-row justify-center text-2xl">
+          <input
+            type="text"
+            class="locationInput w-full focus:outline-none"
+            name="locationInput"
+            placeholder="Enter location..."
+          />
+          <div
+            class="unitDropdown mx-8 font-semibold cursor-default select-none"
+          >
+            Metric
           </div>
-        </form>
-
-        <div class="weatherDataContainer">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <button class="searchBtn" type="submit">
+            <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
+          </button>
         </div>
-
+        <div class="weatherDataContainer my-12">
+          <div class="temperatureValue text-8xl">28°C</div>
+          <div class="statusValue text-4xl">Rainy</div>
+          <div class="locationValue text-2xl">New York, US</div>
+          <div class="dateValue text-2xl">08/03/2023</div>
+        </div>
         <div
           class="brandContainer absolute bottom-0 left-0 font-light hidden md:inline"
         >
