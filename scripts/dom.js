@@ -1,7 +1,10 @@
 // Search Bar
 const locationInput = document.querySelector(".locationInput");
-const unitsInput = document.querySelector(".unitsInput");
-const submitButton = document.querySelector(".submitButton");
+const unitInput = document.querySelector(".unitInput");
+const searchBtn = document.querySelector(".searchBtn");
+
+// Map Container
+const mapContainer = document.querySelector(".mapContainer");
 
 // Quick Info Container
 const tempTxt = document.querySelector(".temp");
