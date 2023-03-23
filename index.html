@@ -35,10 +35,14 @@
         <div class="searchContainer p-5 flex flex-row justify-center text-2xl">
           <input
             type="text"
-            class="locationInput p-2 px-4 w-full"
+            class="locationInput p-2 px-4 w-full focus:outline-none"
             name="locationInput"
           />
-          <div class="unitDropdown p-2 px-4 font-semibold">Metric</div>
+          <div
+            class="unitDropdown p-2 px-4 font-semibold cursor-default select-none"
+          >
+            Metric
+          </div>
           <!-- <select
             name="unitDropdown"
             class="unitDropdown"

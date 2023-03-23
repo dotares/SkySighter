@@ -22,12 +22,12 @@ const map = L.map("map", {
 });
 
 unitDropdown.addEventListener("click", () => {
-  if (unitDropdown.textContent === "Metric") {
-    unitDropdown.textContent = "Imperial";
-    unitDropdown.value = "Imperial";
-  } else {
+  if (unitDropdown.textContent === "Imperial") {
     unitDropdown.textContent = "Metric";
     unitDropdown.value = "Metric";
+  } else {
+    unitDropdown.textContent = "Imperial";
+    unitDropdown.value = "Imperial";
   }
 });
 
