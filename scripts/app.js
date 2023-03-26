@@ -15,7 +15,7 @@
 // >> New boxy design and fix all the glitches
 // ***************************************************
 
-// make the map object
+// Make the map object
 const map = L.map("map", {
   zoomControl: false,
   dragging: false,
@@ -24,27 +24,17 @@ const map = L.map("map", {
 unitDropdown.addEventListener("click", () => {
   const newUnit =
     unitDropdown.textContent === "Imperial" ? "Metric" : "Imperial";
-
   unitDropdown.textContent = newUnit;
   unitDropdown.value = newUnit;
 });
 
-// submit button event handler and call the functions to find weather data according to the user data
+// Submit button event handler and call the functions to find weather data according to the user data
 searchBtn.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitDropdown.value;
-
-  // function call async
   (async () => {
-    // call the geocoding function
     const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
-
-    console.log(latitude, longitude);
-
-    // call the main functions
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
-
-    console.log(dataWeather);
     // const dataAP = await getAirPollutionData(latitude, longitude, userUnit);
     // const dataForecast = await get5DayForecastData(
     //   latitude,
