@@ -32,6 +32,7 @@ unitDropdown.addEventListener("click", () => {
 searchBtn.addEventListener("click", () => {
   const userLocation = locationInput.value;
   const userUnit = unitDropdown.value;
+
   (async () => {
     const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
