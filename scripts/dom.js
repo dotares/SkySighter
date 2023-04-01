@@ -18,4 +18,6 @@ const sunriseAndSunsetTxt = document.querySelector(".sunValue");
 const feelsLikeTempTxt = document.querySelector(".feelsLikeValue");
 
 // Forecast Info Container
-const insertTxt = document.querySelector(".insert");
+const forecastTempContainer = document.querySelector(".forecastTempContainer ");
+const forecastDateContainer = document.querySelector(".forecastDateContainer");
+const forecastDayContainer = document.querySelector(".forecastDayContainer");
