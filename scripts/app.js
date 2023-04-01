@@ -21,6 +21,8 @@ const map = L.map("map", {
   dragging: false,
 });
 
+unitDropdown.value = "Metric";
+
 // Toggle feature for the unit dropdown button
 unitDropdown.addEventListener("click", () => {
   const newUnit =
@@ -35,27 +37,41 @@ searchBtn.addEventListener("click", () => {
   const userUnit = unitDropdown.value;
 
   (async () => {
+    // Get data from the APIs
     const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
-    // const dataAP = await getAirPollutionData(latitude, longitude, userUnit);
-    // const dataForecast = await get5DayForecastData(
-    //   latitude,
-    //   longitude,
-    //   userUnit
-    // );
 
-    // const currentDay = new Date(dataWeather.dt * 1000);
+    // Format the date from UNIX based day to human readable
+    const currentDay = new Date(dataWeather.dt * 1000);
 
-    // const options = {
-    //   year: "numeric",
-    //   month: "long",
-    //   day: "numeric",
-    // };
+    // UI Components to be updated
+    tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}`;
+    statusTxt.innerHTML = `${dataWeather.weather[0].main}`;
+    locationTxt.innerHTML = `${userLocation}, ${dataWeather.sys.country}`;
+    dateTimeTxt.innerHTML = `${currentDay.toLocaleDateString()}`;
 
-    // const currentTime = `${String(currentDay.getHours()).padStart(
-    //   2,
-    //   "0"
-    // )}:${String(currentDay.getMinutes()).padStart(2, "0")}`;
+    windsTxt.textContent = `${dataWeather.wind.speed}`;
+    humidityTxt.textContent = `${dataWeather.main.humidity}% humidity`;
+    visibilityTxt.textContent = `${dataWeather.visibility}`;
+    feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
+      0
+    )}`;
+
+    // User unit states
+    if (userUnit === "Metric") {
+      tempTxt.textContent += "°C";
+      windsTxt.textContent += " m/s winds";
+      visibilityTxt.innerHTML =
+        (Number(visibilityTxt.innerHTML) * 0.000621371).toFixed(1) +
+        " km visibility";
+      feelsLikeTempTxt.textContent += "°C";
+    } else if (userUnit === "Imperial") {
+      tempTxt.textContent += "°F";
+      windsTxt.textContent += " mph winds";
+      visibilityTxt.innerHTML =
+        Number(visibilityTxt.innerHTML) / 1000 + " miles visibility";
+      feelsLikeTempTxt.textContent += "°F";
+    }
 
     // // Quick info temperature status
     // if (userUnit === "metric")
