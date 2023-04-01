@@ -13,7 +13,7 @@ const dateTimeTxt = document.querySelector(".dateValue");
 const windsTxt = document.querySelector(".windsValue");
 const humidityTxt = document.querySelector(".humidityValue");
 const visibilityTxt = document.querySelector(".visibilityValue");
-const sunriseAndSunsetTxt = document.querySelector(".sunrise_and_sunset");
+const sunriseAndSunsetTxt = document.querySelector(".sunValue");
 const feelsLikeTempTxt = document.querySelector(".feelsLikeValue");
 
 // Forecast Info Container

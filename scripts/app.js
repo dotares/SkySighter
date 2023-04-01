@@ -37,39 +37,39 @@ searchBtn.addEventListener("click", () => {
   const userUnit = unitDropdown.value;
 
   (async () => {
-    // Get data from the APIs
     const { latitude, longitude } = await getLatitudeAndLongitude(userLocation);
     const dataWeather = await getWeatherData(latitude, longitude, userUnit);
-
-    // Format the date from UNIX based day to human readable
     const currentDay = new Date(dataWeather.dt * 1000);
+    const sunrise = new Date(dataWeather.sys.sunrise * 1000);
+    const sunset = new Date(dataWeather.sys.sunset * 1000);
+    const hoursInBetween = Math.abs(sunset.getHours() - sunrise.getHours());
+    const minutesInBetween = Math.abs(
+      sunset.getMinutes() - sunrise.getMinutes()
+    );
 
     // UI Components to be updated
     tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}`;
     statusTxt.innerHTML = `${dataWeather.weather[0].main}`;
     locationTxt.innerHTML = `${userLocation}, ${dataWeather.sys.country}`;
     dateTimeTxt.innerHTML = `${currentDay.toLocaleDateString()}`;
-
     windsTxt.textContent = `${dataWeather.wind.speed}`;
-    humidityTxt.textContent = `${dataWeather.main.humidity}% humidity`;
+    humidityTxt.textContent = `${dataWeather.main.humidity}%`;
     visibilityTxt.textContent = `${dataWeather.visibility}`;
-    feelsLikeTempTxt.textContent = `Feels like, ${dataWeather.main.feels_like.toFixed(
-      0
-    )}`;
+    sunriseAndSunsetTxt.textContent = `${hoursInBetween} hours ${minutesInBetween} minutes`;
+    feelsLikeTempTxt.textContent = `${dataWeather.main.feels_like.toFixed(0)}`;
 
     // User unit states
     if (userUnit === "Metric") {
       tempTxt.textContent += "°C";
-      windsTxt.textContent += " m/s winds";
+      windsTxt.textContent += " m/s";
       visibilityTxt.innerHTML =
-        (Number(visibilityTxt.innerHTML) * 0.000621371).toFixed(1) +
-        " km visibility";
+        (Number(visibilityTxt.innerHTML) * 0.000621371).toFixed(1) + " km";
       feelsLikeTempTxt.textContent += "°C";
     } else if (userUnit === "Imperial") {
       tempTxt.textContent += "°F";
-      windsTxt.textContent += " mph winds";
+      windsTxt.textContent += " mph";
       visibilityTxt.innerHTML =
-        Number(visibilityTxt.innerHTML) / 1000 + " miles visibility";
+        Number(visibilityTxt.innerHTML) / 1000 + " miles";
       feelsLikeTempTxt.textContent += "°F";
     }
 
