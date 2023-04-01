@@ -30,11 +30,22 @@ searchBtn.addEventListener("click", () => {
       sunset.getMinutes() - sunrise.getMinutes()
     );
 
+    const days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+
     // UI Components to be updated
     tempTxt.innerHTML = `${dataWeather.main.temp.toFixed(1)}`;
     statusTxt.innerHTML = `${dataWeather.weather[0].main}`;
     locationTxt.innerHTML = `${userLocation}, ${dataWeather.sys.country}`;
     dateTimeTxt.innerHTML = `${currentDay.toLocaleDateString()}`;
+    dayTxt.textContent = `${days[currentDay.getDay()]}`;
     windsTxt.textContent = `${dataWeather.wind.speed}`;
     humidityTxt.textContent = `${dataWeather.main.humidity}%`;
     visibilityTxt.textContent = `${dataWeather.visibility}`;

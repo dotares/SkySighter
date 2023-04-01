@@ -8,6 +8,7 @@ const tempTxt = document.querySelector(".temperatureValue");
 const statusTxt = document.querySelector(".statusValue");
 const locationTxt = document.querySelector(".locationValue");
 const dateTimeTxt = document.querySelector(".dateValue");
+const dayTxt = document.querySelector(".dayValue");
 
 // Detailed Info Container
 const windsTxt = document.querySelector(".windsValue");
