@@ -21,6 +21,7 @@ const map = L.map("map", {
   dragging: false,
 });
 
+// Toggle feature for the unit dropdown button
 unitDropdown.addEventListener("click", () => {
   const newUnit =
     unitDropdown.textContent === "Imperial" ? "Metric" : "Imperial";
