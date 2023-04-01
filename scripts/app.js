@@ -62,49 +62,49 @@ searchBtn.addEventListener("click", () => {
     const Esri_WorldImagery = L.tileLayer(
       "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
     ).addTo(map);
-
-    // filter out the timestamps without the 00 hour unit
-    // const [...timestamps] = dataForecast.list;
-
-    // const result = timestamps.filter((step) =>
-    //   step.dt_txt.includes("00:00:00")
-    // );
-
-    // const days = [
-    //   "Sunday",
-    //   "Monday",
-    //   "Tuesday",
-    //   "Wednesday",
-    //   "Thursday",
-    //   "Friday",
-    //   "Saturday",
-    // ];
-
-    // let finalHtml = ``;
-
-    // // add html in the forecast box of the weather application
-
-    // for (let day of result) {
-    //   const date = new Date(day.dt * 1000);
-    //   const dayNumber = date.getDay();
-    //   const html = `
-    //         <div class="day w-full flex flex-row justify-evenly p-5">
-    //           <div class="px-2 text-xl"><img src="https://openweathermap.org/img/wn/${
-    //             day.weather[0].icon
-    //           }.png"></div>
-    //           <div class="px-2 text-xl forecast_min_and_max_temp">${
-    //             userUnit === "metric"
-    //               ? `${day.main.temp}°C`
-    //               : `${day.main.temp}°F`
-    //           }</div>
-    //           <div class="px-2 text-xl forecast_date">${
-    //             day.dt_txt.split(" ")[0]
-    //           }</div>
-    //           <div class="px-2 text-xl forecast_day">${days[dayNumber]}</div>
-    //         </div>
-    //   `;
-    //   finalHtml += html;
-    // }
-    // insertTxt.innerHTML = finalHtml;
   })();
 });
+
+// filter out the timestamps without the 00 hour unit
+// const [...timestamps] = dataForecast.list;
+
+// const result = timestamps.filter((step) =>
+//   step.dt_txt.includes("00:00:00")
+// );
+
+// const days = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
+
+// let finalHtml = ``;
+
+// // add html in the forecast box of the weather application
+
+// for (let day of result) {
+//   const date = new Date(day.dt * 1000);
+//   const dayNumber = date.getDay();
+//   const html = `
+//         <div class="day w-full flex flex-row justify-evenly p-5">
+//           <div class="px-2 text-xl"><img src="https://openweathermap.org/img/wn/${
+//             day.weather[0].icon
+//           }.png"></div>
+//           <div class="px-2 text-xl forecast_min_and_max_temp">${
+//             userUnit === "metric"
+//               ? `${day.main.temp}°C`
+//               : `${day.main.temp}°F`
+//           }</div>
+//           <div class="px-2 text-xl forecast_date">${
+//             day.dt_txt.split(" ")[0]
+//           }</div>
+//           <div class="px-2 text-xl forecast_day">${days[dayNumber]}</div>
+//         </div>
+//   `;
+//   finalHtml += html;
+// }
+// insertTxt.innerHTML = finalHtml;
