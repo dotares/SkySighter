@@ -50,6 +50,7 @@ searchBtn.addEventListener("click", () => {
     statusTxt.innerHTML = `${dataWeather.weather[0].main}`;
     locationTxt.innerHTML = `${userLocation}, ${dataWeather.sys.country}`;
     dateTimeTxt.innerHTML = `${currentDay.toLocaleDateString("en-US")}`;
+
     dayTxt.textContent = `${days[currentDay.getDay()]}`;
     windsTxt.textContent = `${dataWeather.wind.speed}`;
     humidityTxt.textContent = `${dataWeather.main.humidity}%`;
