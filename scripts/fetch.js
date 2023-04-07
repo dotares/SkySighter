@@ -1,4 +1,5 @@
 // API KEYS:
+import config from "./config.js";
 
 const openWeatherAPIKey = config.OPEN_WEATHER_API_KEY;
 
@@ -32,3 +33,5 @@ const get5DayForecastData = async function (lat, lon, unit) {
   const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&units=${unit}&lon=${lon}&appid=${openWeatherAPIKey}`;
   return fetchData(url);
 };
+
+export { getLatitudeAndLongitude, getWeatherData, get5DayForecastData };

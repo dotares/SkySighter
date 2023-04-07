@@ -1,3 +1,9 @@
+import {
+  getLatitudeAndLongitude,
+  getWeatherData,
+  get5DayForecastData,
+} from "./fetch.js";
+
 // Make the map object
 const map = L.map("map", {
   zoomControl: false,
