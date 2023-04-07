@@ -3,9 +3,5 @@
 @tailwind utilities;
 
 * {
-	font-family: "Rubik", sans-serif;
-}
-
-.lower_container {
-	height: 450px;
+  font-family: "Roboto", sans-serif;
 }

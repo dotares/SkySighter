@@ -1,3 +1,5 @@
+<!-- Change the entire UI -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -27,129 +29,89 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="">
-    <nav class="flex flex-row">
-      <input
-        class="locationInput text-tealy-light bg-tealy-darker text-xl p-10 w-full"
-        type="text"
-        name="locationInput"
-      />
-      <select
-        class="unitsInput text-center text-tealy-light bg-tealy-darker text-xl p-10"
-        name="unitsInput"
-        style="-webkit-appearance: none; appearance: none"
-      >
-        <option value="metric">Metric</option>
-        <option value="imperial">Imperial</option>
-        <option value="standard">Standard</option>
-      </select>
-      <button
-        class="submitButton text-xl text-tealy-light bg-tealy-darker p-10"
-      >
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </nav>
-    <div class="">
-      <div class="main_container">
-        <div class="upper_container flex flex-row">
+  <body>
+    <div class="mainContainer flex flex-col md:flex-row">
+      <div class="infoContainer m-16 relative w-full">
+        <div class="searchContainer flex flex-row justify-center text-2xl">
+          <input
+            type="text"
+            class="locationInput w-full focus:outline-none"
+            name="locationInput"
+            placeholder="Enter location..."
+          />
           <div
-            class="quick_info_container text-tealy-light bg-tealy-dark flex flex-col p-10"
+            class="unitDropdown mx-8 font-semibold cursor-default select-none"
           >
-            <div class="upper flex flex-col">
-              <span class="temp text-8xl p-5">--°-</span>
-              <span class="status text-4xl p-5 flex flex-row">----</span>
-            </div>
-            <div class="lower flex flex-col">
-              <span class="location text-2xl p-5"
-                ><i class="fa-solid fa-location-dot m-2"></i> ---, --</span
-              >
-              <span class="datetime text-2xl p-5"
-                ><i class="fa-solid fa-calendar-days m-2"></i>
-                -- ---, ----
-              </span>
-              <span class="time text-2xl p-5"
-                ><i class="fa-solid fa-clock m-2"></i> --:--
-              </span>
-            </div>
+            Metric
           </div>
-          <div
-            class="secondary_container w-full flex flex-row bg-tealy-dark text-tealy-light justify-evenly text-center text-2xl"
-          >
-            <div class="sect_one flex flex-col justify-evenly text-center">
-              <div class="upper_one flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-wind fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="winds">-- -/- winds</span>
-                </div>
+          <button class="searchBtn" type="submit">
+            <i class="fa-solid fa-magnifying-glass" style="color: #000000"></i>
+          </button>
+        </div>
+        <div
+          class="weatherDataContainer w-full h-full flex flex-col justify-center"
+        >
+          <div class="w-full flex flex-col mb-16">
+            <div class="flex flex-row justify-center">
+              <div class="mr-12">
+                <div class="temperatureValue font-light text-9xl">28°C</div>
               </div>
-              <div class="lower_one flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-droplet fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="humidity">--% humidity</span>
-                </div>
-              </div>
-            </div>
-            <div class="sect_two flex flex-col justify-evenly text-center">
-              <div class="upper_two flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-temperature-high fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="min_and_max_temp">--°- min/--°- max</span>
-                </div>
-              </div>
-              <div class="lower_two flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-eye fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="visibility">-- -- visibility</span>
-                </div>
-              </div>
-            </div>
-            <div class="sect_three flex flex-col justify-evenly text-center">
-              <div class="upper_three flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-sun fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="sunrise_and_sunset"
-                    >From --:-- <br />
-                    to --:--
-                  </span>
-                </div>
-              </div>
-              <div class="lower_three flex flex-col">
-                <div class="icon p-5">
-                  <i class="fa-solid fa-fire fa-2xl"></i>
-                </div>
-                <div class="text p-5">
-                  <span class="feels_like_temp">Feels like, --°-</span>
-                </div>
+              <div class="flex flex-col">
+                <div class="statusValue text-5xl">Rainy</div>
+                <div class="locationValue text-3xl">New York, US</div>
+                <div class="dateValue text-3xl">08/03/2023</div>
+                <div class="dayValue text-3xl">Monday</div>
               </div>
             </div>
           </div>
-          <div
-            class="main_container text-tealy-light p-10 w-full flex flex-col bg-tealy-dark"
-          >
-            <p class="forecast_heading"></p>
-            <div class="insert"></div>
+          <div class="w-full flex flex-row">
+            <div
+              class="weatherDetailsContainter text-left w-2/3 mr-24 flex flex-col"
+            >
+              <div class="windsValueContainer text-3xl">
+                <span class="font-bold windsValue">--</span> winds
+              </div>
+              <div class="humidityValueContainer text-3xl">
+                <span class="font-bold humidityValue">--</span> humidity
+              </div>
+              <div class="visibilityValueContainer text-3xl">
+                Upto <span class="font-bold visibilityValue">--</span>
+                visibility
+              </div>
+              <div class="sunValueContainer text-3xl">
+                Sun is up for <span class="font-bold sunValue">--</span>
+              </div>
+              <div class="feelsLikeValueContainer text-3xl">
+                Feels like, <span class="font-bold feelsLikeValue">--</span>
+              </div>
+            </div>
+            <div
+              class="text-right weatherForecastContainer w-full flex flex-row justify-between"
+            >
+              <div
+                class="forecastTempContainer justify-between text-2xl flex flex-col"
+              ></div>
+              <div
+                class="forecastDateContainer justify-between text-2xl flex flex-col"
+              ></div>
+              <div
+                class="forecastDayContainer justify-between text-2xl flex flex-col"
+              ></div>
+            </div>
           </div>
         </div>
         <div
-          class="lower_container bg-tealy-dark text-tealy-light flex flex-row"
+          class="brandContainer absolute bottom-0 left-0 font-light hidden md:inline"
         >
-          <div id="map" class="map_container h-full w-full"></div>
+          SkySighter
         </div>
       </div>
+      <div id="map" class="mapContainer h-screen w-full"></div>
     </div>
+
     <script src="scripts/config.js"></script>
-    <script src="scripts/dom.js"></script>
     <script src="scripts/fetch.js"></script>
+    <script src="scripts/dom.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>

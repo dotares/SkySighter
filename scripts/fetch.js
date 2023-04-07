@@ -23,7 +23,7 @@ const getLatitudeAndLongitude = async (location) => {
   }
 };
 
-// Function for getting weather data
+// Function for getting all types of API endpoint data
 
 const getWeatherData = async (lat, lon, unit) => {
   try {
